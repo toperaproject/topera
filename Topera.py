@@ -187,7 +187,7 @@ if __name__ == '__main__':
 		
 		
 	# Set local IP
-	if cmdParams.ip_src is None:
+	if cmdParams.ip_src is None:		
 		cmdParams.ip_src = getLocalIPv6Address(cmdParams)
 		if cmdParams.ip_src == "":
 			IODebug.displayError("Can't get source IPv6. Please specify source IPv6 address option '-s'.\n")
@@ -195,8 +195,8 @@ if __name__ == '__main__':
 
 	# Get remote MAC
 	if cmdParams.mac_dst is None:
-		getRemoteAddr(cmdParams)
-		if cmdParams.mac_dst == None:
+		cmdParams.mac_dst = getRemoteAddr(cmdParams)
+		if cmdParams.mac_dst == "":
 			IODebug.displayError("Can't get remote MAC address. Please specify source MAC address option '-dm'.\n")
 			exit(1)					
 

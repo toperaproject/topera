@@ -131,7 +131,10 @@ def sneakyTCPScan(Params_):
 
     # Start sniffer
     m_sniffer = csniffer(Params_, "ip6 && tcp && not src host %s" % str(Params_.ip_src), fun=ProcessSniffedPacket)
-    m_sniffer.start()
+    try:
+	m_sniffer.start()
+    except e:
+	IODebug.displayError("Can't start sniffer. Error: %s" & str(e))
 
     # Start scan
     for port in Params_.Port_range:

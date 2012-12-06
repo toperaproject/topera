@@ -50,8 +50,8 @@ class csniffer(threading.Thread):
 		m_filter = self._filters
 		
 		while not self.stoprequest.isSet():
-			sniff(iface=self._params.iface_out, filter=m_filter, prn=self.func, store=0, count=1, timeout=2)
-	    
+			sniff(iface=self._params.iface_out, filter=m_filter, prn=self.func, store=0, timeout=2)
+
 	def join(self, timeout=None):
 		self.stoprequest.set()
 		super(csniffer, self).join(timeout)
@@ -79,10 +79,9 @@ def getLocalIPv6Address(Params):
 				m_return = a[4][0]
 				break			
 		else:
-			if a[1] == 128:			
+			if a[1] == 128 and a[3] != "lo":			
 				m_return = a[4][0]
 				break
-		
 	return m_return
 # __getLocalIPv6Address
 #
@@ -91,12 +90,26 @@ def getLocalIPv6Address(Params):
 #
 # initGetRemoteAddr
 def getRemoteAddr(Params):
-	"""Get remote MAC addr of target"""
+	"""
+	Get remote MAC addr of target
 
-	pkt = neighsol(Params.Target, Params.ip_src, Params.iface_out, timeout=4)
+	return IPv6 Addr | "" if fail
+	
+	"""
+
+	m_return = ""
+
+	pkt = None
+	
+	try:
+		pkt = neighsol(Params.Target, Params.ip_src, Params.iface_out, timeout=4)
+	except:
+		pass
 
 	if pkt != None:
-		Params.mac_dst = str(pkt[ICMPv6ND_NA].lladdr)
+		m_return = str(pkt[ICMPv6ND_NA].lladdr)
+		
+	return m_return
 		
 # END initGetRemoteAddr
 #
