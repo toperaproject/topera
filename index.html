@@ -31,33 +31,82 @@
         <hr>
 
         <section id="main_content">
-          <h3>Welcome to GitHub Pages.</h3>
+          <h3>What's Topera?</h3>
+          <p>Topera is a new security tools for IPv6, with the particularity that their attacks can't be detected by Snort. </p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Snort is the most known IDS/IPS and is widely used in many different critical environments. Some commercial tools (Juniper or Checkpoint ones) use it as detection engine also.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>Mocking snort detection capabilities could suppose a high risk in some cases.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>All the community is invited to test it in any environment and we would be thankful if you send us any feedback.</p>
 
-<h3>Designer Templates</h3>
+          <p>This tool was presented in the second edition of the Security Conference "Navaja Negra" (http://www.navajanegra.com) by Daniel Garcia a.k.a cr0hn (@ggdaniel) and Rafa Sanchez (@r_a_ff_a_e_ll_o ).</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+          <h3>What's new?</h3>
+          <p>
+          New version of Topera (0.0.2) include these improvements:
+          <ol>
+            <li>Slow HTTP attacks (Slowloris over IPv6).</li>
+            <li>Improved TCP port scanner.</li>
+          </ol>
+          </p>
 
-<h3>Rather Drive Stick?</h3>
+          <h3>Why?</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+          <p>Our intention is to promote awareness of and show the security implications of IPv6.</p>
 
-<h3>Authors and Contributors</h3>
+          <h3>How to use it?</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+          <h4>Help</h4>
 
-<h3>Support or Contact</h3>
+          <img src="images/topera_help.png" alt="topera help image" />
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+          <h4>List plugins:</h4>
+
+          <pre><code># topera.py -L</code></pre>
+          <img src="images/topera_list_modes.png" alt="topera list modes" />          
+
+          <h4>Topera loris mode:</h4>
+          <p>Run with default options:</p>
+          <pre><code># python topera.py -M topera_loris -t fe80:b100:::c408</code></pre>          
+          <p>Run specifing: destination port, delay between connections, and number os extensions headers:</p>
+          <pre><code># python topera.py -M topera_loris -t fe80:b100:::c408 \
+--dport 8080 --delay 0 --headers-num 0 -vvv</code></pre>               
+
+          <img src="images/topera_loris.png" alt="topera list modes" />          
+
+          <h4>Topera in TCP port scanner mode:</h4>
+          <p>Run with default options:</p>
+          <pre><code># python topera.py -M topera_tcp_scan -t fe80:b100:::c408</code></pre>          
+          <p>Run specifing: ports to scan, delay between connections, and number os extensions headers:</p>
+          <pre><code># python topera.py -M topera_tcp_scan -t fe80:b100:::c408 \
+-p 21,22,23,80,8080 --scan-delay 0 --headers-num 0 -vvv</code></pre>                     
+
+          <img src="images/topera_tcp_scan.png" alt="topera list modes" />          
+
+          <h3>Video</h3>
+  
+          <iframe width="560" height="315" src="http://www.youtube.com/embed/QQfLZcWEmi4" frameborder="0" allowfullscreen></iframe>
+              
+
+<h3>Contact</h3>
+
+<p>You can contact with us at this mail: 
+        <script language=javascript>
+          <!--
+          var email = "topera.project"
+          var emailHost = "gmail.com"
+          var arroba = String.fromCharCode(64)
+          var contact = email + arroba + emailHost
+          document.write("<strong><a href=" + "mail" + "to:" + email + arroba + emailHost+ ">" + contact + "</a></strong>" + ".")
+          //-->
+
+        </script>
+
+</p>
         </section>
+
+
 
         <footer>
           Topera is maintained by: <br>
