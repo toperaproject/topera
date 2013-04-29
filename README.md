@@ -34,3 +34,6 @@ Our intention is to promote awareness of and show the security implications of I
 For additional help, images an videos, go to our github web page at:
 
 [Topera project page](http://toperaproject.github.io/topera/)
+
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f64a47ebf01fbefd9e18ec4da28f079d "githalytics.com")](http://githalytics.com/toperaproject/topera)
