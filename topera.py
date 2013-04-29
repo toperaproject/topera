@@ -36,7 +36,6 @@ __status__ = "Testing"
 # system import
 import sys
 import os.path as path
-from os import geteuid
 
 try:
 	import argparse
@@ -100,6 +99,18 @@ def Credits():
 	print ""
 
 
+#----------------------------------------------------------------------
+def get_user():
+	"""Return True if User is system Admin. False otherwise. This is valid for Windows and *NIX"""
+	try:
+		from os import geteuid
+		return geteuid() == 0
+	except ImportError:
+		from getpass import getuser
+
+		return getuser().lower().startwith("admin")
+
+
 #
 # Start of program
 if __name__ == '__main__':
@@ -112,7 +123,7 @@ if __name__ == '__main__':
 		sys.exit(1)
 
 	# Check if running user is root
-	if not geteuid()==0:
+	if not get_user():
 		print "\n[!] You must be root to run %s\n" % (__prog__)
 		sys.exit(1)
 
