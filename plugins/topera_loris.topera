@@ -1,0 +1,9 @@
+[Core]
+Name = Topera_loris
+Module = topera_loris.py
+
+[Documentation]
+Description = A slowloris attack under IPv6 and Topera mode.
+Author = Daniel Garcia Garcia (cr0hn)
+Version = 0.1
+Website = https://github.com/toperaproject/topera

@@ -1,0 +1,9 @@
+[Core]
+Name = Topera_tcpscan
+Module = topera_tcp_scan.py
+
+[Documentation]
+Description = A TCP scan using Topera method
+Author = Daniel Garcia Garcia (cr0hn)
+Version = 0.1
+Website = https://github.com/toperaproject/topera
