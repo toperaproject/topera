@@ -5,9 +5,41 @@ test/
 
 # Python and IDE extensions
 *.py[cod]
-*.wpu
-*.wpr
-*.wpr2
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
 
 # Source control folders
 .svn
@@ -26,8 +58,3 @@ test/
 
 # Mac files
 .DS_Store
-
-# Build directories
-*/build/
-*/dist/
-*/*/build/
