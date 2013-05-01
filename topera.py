@@ -37,6 +37,12 @@ __status__ = "Testing"
 import sys
 import os.path as path
 
+# Check for python version
+if sys.version_info < (2, 7):
+	print "\n[!] you must use python 2.7 or greater\n"
+	sys.exit(1)
+
+
 try:
 	import argparse
 except ImportError:
@@ -122,11 +128,6 @@ def get_user():
 if __name__ == '__main__':
 
 	Credits()
-
-	# Check for python version
-	if sys.version_info < (2, 7):
-		print "\n[!] you must use python 2.7 or greater\n"
-		sys.exit(1)
 
 	# Check if running user is root
 	if not get_user():
