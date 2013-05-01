@@ -40,7 +40,7 @@ import os.path as path
 try:
 	import argparse
 except ImportError:
-	print "\n[!] You're using '%s.%s.%s' version of python. You must use python 2.7 or greater\n" % (sys.version_info.major, sys.version_info.minor, sys.version_info.micro)
+	print "\n[!] You must use python 2.7 or greater\n"
 	sys.exit(1)
 
 from time import gmtime, strftime, clock
@@ -55,8 +55,14 @@ except ImportError:
 	print ""
 	print "[!] You need to install scapy libs."
 	print ""
-	print "To install it, run:"
-	print "   apt-get install python-scapy"
+	print "First install depends:"
+	print "   apt-get install tcpdump graphviz imagemagick python-gnuplot python-crypto python-pyx"
+	print ""
+	print "Then intall scapy:"
+	print "   wget http://hg.secdev.org/scapy/archive/tip.zip -O scapy-lastest.zip"
+	print "   unzip scapy-latest.zip"
+	print "   cd scapy-xxxxxxxxx"
+	print "   sudo python setup.py install"
 	print ""
 	exit(1)
 
